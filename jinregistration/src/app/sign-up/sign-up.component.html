@@ -2,13 +2,13 @@
   <div class="col s8 offset-s2">
     <div class="card">
       <div class="sm-jumbotron center-align">
-      <h2>User Registration</h2>
+         <h2>User Registration</h2>
       </div>
       <form class="col s12 white" #userRegistrationForm="ngForm">
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
-            <label>UserName</label>
+            <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+            <label data-error="Required field!">UserName</label>
           </div>
           <div class="input-field col s6">
             <input type="password" id="Password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required>
