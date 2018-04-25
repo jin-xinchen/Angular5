@@ -3,17 +3,40 @@
     <div class="card">
       <div class="sm-jumbotron center-align">
       <h2>User Registration</h2>
+      </div>
       <form class="col s12 white" #userRegistrationForm="ngForm">
         <div class="row">
           <div class="input-field col s6">
-            <input type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName">
+            <input type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+            <label>UserName</label>
           </div>
           <div class="input-field col s6">
-            
+            <input type="password" id="Password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required>
+            <label for="Password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="Email" name="Email" #Email="ngModel" [(ngModel)]="user.Email">
+            <label for="Email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" name="FirstName" #Email="ngModel" [(ngModel)]="user.FirstName">
+            <label>First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" name="LastName" #Email="ngModel" [(ngModel)]="user.LastName">
+            <label>Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-feild col s12">
+            <button class="btn-large btn-submit" type="submit">Submit</button>
           </div>
         </div>
       </form>
-      </div>
     </div>
   </div>
 </div>
