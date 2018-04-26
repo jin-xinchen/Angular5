@@ -7,12 +7,17 @@
       <form class="col s12 white" #userRegistrationForm="ngForm">
         <div class="row">
           <div class="input-field col s6">
-            <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
-            <label data-error="Required field!">UserName</label>
+            <input class="validate" type="text" name="UserName" id="UserName"
+            #UserName="ngModel" [(ngModel)]="user.UserName" required>
+            <label for="UserName">UserName</label>
+            <span class="helper-text" data-error="Required field!" data-success="right"></span>
           </div>
           <div class="input-field col s6">
-            <input type="password" id="Password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required>
-            <label for="Password">Password</label>
+            <input class="validate" type="password" id="Password" name="Password" 
+            #Password="ngModel" [(ngModel)]="user.Password" required minlength="3">
+            <label for="Password" >Password</label>
+             <span class="helper-text" [attr.data-error]="Password.errors!=null?(
+              Password.errors.required?'Required field!':'Minimum 3 characters needed'):''"></span>
           </div>
         </div>
         <div class="row">
