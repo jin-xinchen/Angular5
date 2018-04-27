@@ -4,7 +4,7 @@
       <div class="sm-jumbotron center-align">
          <h2>User Registration</h2>
       </div>
-      <form class="col s12 white" #userRegistrationForm="ngForm">
+      <form class="col s12 white" #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(userRegistrationForm)">
         <div class="row">
           <div class="input-field col s6">
             <input class="validate" type="text" name="UserName" id="UserName"
@@ -22,8 +22,10 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <input type="text" id="Email" name="Email" #Email="ngModel" [(ngModel)]="user.Email">
+            <input class="validate" type="text" id="Email" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern">
             <label for="Email">Email</label>
+            <span class="helper-text" data-error="Invalid email!" data-success="right"></span>
+            <span></span>
           </div>
         </div>
         <div class="row">
@@ -38,7 +40,7 @@
         </div>
         <div class="row">
           <div class="input-feild col s12">
-            <button class="btn-large btn-submit" type="submit">Submit</button>
+            <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
           </div>
         </div>
       </form>
