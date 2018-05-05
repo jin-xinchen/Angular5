@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../shared/user.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,7 @@ export class SignUpComponent implements OnInit {
   user:User;
   emailPattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService,private toastr :ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -30,9 +31,27 @@ export class SignUpComponent implements OnInit {
     this.userService.registerUser(form.value)
     .subscribe((data:any)=>{
       console.log(data);
+      console.log("resulet:"+data.ok);
       if(data.Succeeded==true){
-         this.resetForm(form);}
-         else{console.log('error in http client!')}
+         this.resetForm(form);
+         
+        }else{console.log('error in http client!')}
     });
   }
 }
+//install NPM package for showing notification message 
+//for success and error operations
+// ngx-toaster
+//npm install ngx-toastr --save
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+//import {ToastrModule} from 'ngx-toastr';
+/*
+ imports: [
+    BrowserModule,FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
+  ],
+import {ToastrService} from 'ngx-toastr';
+*/
