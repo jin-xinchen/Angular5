@@ -9,7 +9,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 //In order to install the package you can this command 
 // PM> Install-Package Microsoft.AspNet.WebApi.Cors -Version 5.2.3
 // pM> Update-Package Microsoft.AspNet.WebApi -reinstall
-    //select this project in from solution Explorer then go to tools
+// PM> Install-Package Microsoft.AspNet.WebApi.Core -Version 5.2.3
+//select this project in from solution Explorer then go to tools
 // then NuGet Package Manger then package Manager Console
 namespace aspwebapp1.Models
 {
