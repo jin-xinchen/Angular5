@@ -30,12 +30,15 @@ export class SignUpComponent implements OnInit {
   onSubmit(form:NgForm){
     this.userService.registerUser(form.value)
     .subscribe((data:any)=>{
-      console.log(data);
-      console.log("resulet:"+data.ok);
+      // console.log(data);
+      // console.log("resulet:"+data.ok);
       if(data.Succeeded==true){
          this.resetForm(form);
-         
-        }else{console.log('error in http client!')}
+         this.toastr.success('User registration successful');
+        }else{
+          // console.log('error in http client!')
+          this.toastr.error(data.Errors[0]);
+      }
     });
   }
 }
