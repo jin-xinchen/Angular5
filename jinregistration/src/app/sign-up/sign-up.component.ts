@@ -12,7 +12,7 @@ import {ToastrService} from 'ngx-toastr';
 export class SignUpComponent implements OnInit {
   user:User;
   emailPattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-
+  public errorMsg;
   constructor(private userService:UserService,private toastr :ToastrService) { }
 
   ngOnInit() {
@@ -39,7 +39,11 @@ export class SignUpComponent implements OnInit {
           // console.log('error in http client!')
           this.toastr.error(data.Errors[0]);
       }
-    });
+    },
+  error=>{
+    //this.errorMsg=error;
+    this.toastr.error(error);
+              });
   }
 }
 //install NPM package for showing notification message 

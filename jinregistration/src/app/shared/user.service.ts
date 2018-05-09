@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Response } from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 import {User} from './user.model';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class UserService {
@@ -20,6 +22,10 @@ export class UserService {
        LastName:user.LastName
      }
      return this.http.post(
-       this.rootUrl+'/api/User/Register',body);
+       this.rootUrl+'/api/User/Register',body)
+       .catch(this.errorPostHander);
+   }
+   errorPostHander(error:HttpErrorResponse){
+     return Observable.throw(error.message||' Server Error!')
    }
 }
