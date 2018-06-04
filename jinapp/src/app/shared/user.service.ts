@@ -30,7 +30,7 @@ export class UserService {
 
   getUserClaims(){
    return  this.http.get(this.rootUrl+'/api/GetUserClaims'
-    ,{headers:new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})}
+    //,{headers:new HttpHeaders({'Authorization':'Bearer '+localStorage.getItem('userToken')})}
    );
   }
 
